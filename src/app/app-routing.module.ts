@@ -5,6 +5,16 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+ {
+  path: '',
+  redirectTo:'alert-page',
+  pathMatch:'full',
+ }
+  ,
+  {
+    path: 'alert-page',
+    loadChildren: () => import('./alert-page/alert-page.module').then( m => m.AlertPagePageModule)
   }
 ];
 @NgModule({

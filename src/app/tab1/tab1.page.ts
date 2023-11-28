@@ -7,6 +7,23 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+public alertButtons = ['OK'];
+public alertInputs = [
+  {
+    label: 'Red',
+    type: 'radio',
+    value: 'red',
+  },
+  {
+    label: 'Blue',
+    type: 'radio',
+    value: 'blue',
+  },
+  {
+    label: 'Green',
+    type: 'radio',
+    value: 'green',
+  },
+];
 
 }
