@@ -16,31 +16,74 @@ export class AlertPagePage implements OnInit {
   }
   async showAlert(){
     const alert = await this.alertCtrl.create({
-      cssClass: 'my-custom-class', 
-      header: 'Prompt!',
-      inputs: [
+      cssClass: 'My-custom-clas',
+      header:'Prompt!',
+      inputs:[
         {
-          name: 'name1',
-          type: 'text',
-          placeholder:'Placeholder 1'
-      },
-      {
-        name: 'name2',
-        type: 'text',
-        id: 'name2-id',
-        value: 'hello',
-        placeholder:'Placeholder 2'
-    },
-    //multiline input.
-    {
-      name: 'paragraph',
-      id: 'paragraph',
-      type: 'textarea',
-      placeholder:'Placeholder 3'
-  },
-    ],
+          
+          name:'firstname:',
+          type:'text',
+          placeholder:'enter your firstname'
+        },
+        {
+          name:'lastname:',
+          type:'text',
+          placeholder:'enter your lastname'
+        },
+        {
+          name:'dob',
+          type:'date'
+        },
+        {
+          
+          type:'radio',
+         label:'Female',
+         value:'Female'
+        },
+        {
+          name:'number',
+          type:'number',
+          placeholder:'enter your number'
+        },
+        {
+          name:'password',
+          type:'password',
+          placeholder:'enter your password'
+        },
+        {
+          name:'re-password',
+          type:'password',
+          placeholder:'enter your re-password'
+        },
+      ],
+      buttons:[
+        {
+          text:'Cancel',
+          role:'cancel',
+          cssClass:'secondary',
+          handler: () =>{
+            
+          }
+        },
+        {
+          text:'OK',
+          handler:(value:any)=>{
+            console.log('confirm',value);
+            this.showUserData(value);
+          }
+        }]
     });
-
     await alert.present();
-  }
+    
+}
+
+async showUserData(data: any) {
+const alert = await this.alertCtrl.create({
+  header: 'User Data',
+  message: JSON.stringify(data), // แสดงข้อมูลในรูปแบบ JSON
+  buttons: ['OK']
+});
+
+await alert.present();
+}
 }
