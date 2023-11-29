@@ -78,9 +78,10 @@ export class AlertPagePage implements OnInit {
 }
 
 async showUserData(data: any) {
+
 const alert = await this.alertCtrl.create({
   header: 'User Data',
-  message: JSON.stringify(data), // แสดงข้อมูลในรูปแบบ JSON
+  message: JSON.stringify(data) , // แสดงข้อมูลในรูปแบบ JSON
   buttons: ['OK']
 });
 
